@@ -1,0 +1,643 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: #c6c6c6;
+    color: #333;
+}
+
+.header {
+    background-color: #3498db;
+    color: #464646;
+    padding: 20px;  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+.logo {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: #ecf0f1;
+}
+
+.logo img {
+    max-height: 50px;
+    margin-right: 10px; /* Расстояние между логотипом и текстом */
+}
+
+.header a.logo {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.header a.logo h1 {
+    margin-left: 10px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #ecf0f1;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* Стили для меню пользователя */
+.user-menu {
+    position: relative;
+}
+
+.menu-list {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 10px 0;
+}
+
+.menu-list li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.menu-list a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.menu-list a:hover {
+    background-color: #3498db;
+    color: #fff;
+}
+
+/* Updated styles for the user avatar container */
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%; /* Circular image */
+    display: block;
+    overflow: hidden;
+    display: inline-block;
+    
+    margin-right: 0px;
+}
+
+/* Styles for the user avatar image */
+.user-avatar img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* Updated styles for the user info to align the elements */
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+
+.user-info a {
+    text-decoration: none;
+    color: #ecf0f1;
+    font-weight: bold;
+    font-size: 16px;
+    padding-right: 12px;
+}
+
+/* Hide the user menu by default */
+.user-menu ul {
+    display: none;
+}
+#username {
+    padding: 10px;
+    text-align: right;
+  }
+  
+  #boardsDropdown {
+    margin: 10px;
+  }
+  
+  #lists-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+  }
+/* Стили для доски и колонок */
+.board {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+.board-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+.menu-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.menu-button svg {
+    fill: #333;
+}
+
+.board-menu {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 1000;
+    padding: 10px;
+  }
+  
+  .board-item {
+    position: relative;
+  }
+  
+  .board-menu button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+  }
+  
+  .board-menu button:hover {
+    background-color: #f0f0f0;
+  }
+
+.column {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 30%;
+    padding: 10px;
+    margin-right: 10px;
+}
+
+.column h2 {
+    margin-top: 0;
+}
+
+/* Стили для кнопки создания доски */
+.create-board-button {
+    background-color: #3498db;
+    color: #ecf0f1;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.create-board-button:hover {
+    background-color: #2980b9;
+}
+
+/* Стили для выпадающего меню создания доски */
+.create-board-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.create-board-menu {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 230px;
+    padding: 10px;
+    top: 100%;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.create-board-menu label,
+.create-board-menu select,
+.create-board-menu button {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.create-board-menu button {
+    background-color: #3498db;
+    color: #ecf0f1;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.create-board-menu button:hover {
+    background-color: #2980b9;
+}
+
+/* dashboard.css */
+.board {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+/* Стили списков и карточек */
+.list {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    width: 300px;
+  }
+  
+  .list-head {
+    font-size: 18px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .card {
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card h4 {
+    margin: 0;
+  }
+  
+  .card p {
+    margin: 5px 0 0 0;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: rgb(100, 100, 100);
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  .add-card-form {
+    margin-top: 10px;
+  }
+  
+  .add-card {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .add-card:hover {
+    background-color: #218838;
+  }
+  
+  .edit-button, .delete-button {
+    background-color: #ffc107;
+    color: white;
+    border: none;
+    padding: 6px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .edit-button:hover {
+    background-color: #e0a800;
+  }
+  
+  .delete-button {
+    background-color: #dc3545;
+  }
+  
+  .delete-button:hover {
+    background-color: #c82333;
+  }
+  
+  button.close {
+    background-color: transparent;
+    color: #aaa;
+    font-size: 24px;
+  }
+  
+  button.close:hover {
+    color: #000;
+  }
+/* Стили для выпадающего окна */
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropbtn {
+    background-color: #3498db;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .dropdown:hover .dropbtn {
+    background-color: #2980b9;
+  }
+  
+
+.create-list-button{
+    background-color: #3498db;
+    color: #ecf0f1;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+  
+  
+.ListImput{
+    width: 300px;
+    background-color: #b9b9b9;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+
+ .list-name {
+    color:#3498db;
+ }
+ .board-container{
+    display:flex;
+    
+ }
+main{
+    display: flex;
+}
+/* Стили для модального окна */
+
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  
+  .modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 300px;
+    border-radius: 10px;
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover, .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  input[type="text"], textarea {
+    width: calc(100% - 24px);
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  input[type="text"]:focus, textarea:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+  }
+  
+  textarea {
+    resize: vertical;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: rgb(79, 79, 79);
+    border: none;
+    padding: 10px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  button.cancel {
+    background-color: #dc3545;
+  }
+  
+  button.cancel:hover {
+    background-color: #c82333;
+  }
+  
+  button.save {
+    background-color: #28a745;
+  }
+  
+  button.save:hover {
+    background-color: #218838;
+  }
+
+
+  body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.header.dark-mode {
+    background-color: #1f1f1f;
+    color: #ffffff;
+}
+
+.list.dark-mode {
+    background-color: #333333;
+}
+
+.card.dark-mode {
+    background-color: #444444;
+    color: #ffffff;
+}
+
+.modal-content.dark-mode {
+    background-color: #333333;
+    color: #ffffff;
+}
+/* Ночной режим */
+body.night-mode {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+}
+
+.night-mode .header {
+    background-color: #1a252f;
+    color: #ecf0f1;
+}
+
+.night-mode .list {
+    background-color: #34495e;
+    color: #ecf0f1;
+}
+
+.night-mode .card {
+    background-color: #3b4f5c;
+    color: #ecf0f1;
+}
+
+/* Переключатель темы */
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
+
+.theme-switch {
+    display: inline-block;
+    height: 34px;
+    position: relative;
+    width: 60px;
+}
+
+.theme-switch input {
+    display: none;
+}
+
+.slider {
+    background-color: #ccc;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+}
+
+.slider:before {
+    background-color: #fff;
+    bottom: 4px;
+    content: "";
+    height: 26px;
+    left: 4px;
+    position: absolute;
+    transition: .4s;
+    width: 26px;
+}
+
+input:checked + .slider {
+    background-color: #2196f3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}

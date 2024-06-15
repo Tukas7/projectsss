@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="server.js"></script>
+    <title>Login</title>
+</head>
+<body>
+    <header class="header">
+        <a href="index.html" class="logo">
+            <img src="images/logo.png" alt="TaskMasterHub Logo">
+            <h1>TaskMasterHub</h1>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html#features">Возможности</a></li>
+                <li><a href="index.html#advantages">Преимущества</a></li>
+                <li><a href="index.html#service">Наш сервис</a></li>
+                <li><a href="index.html#testimonials">Отзывы</a></li>
+                <li><a href="index.html#contact">Контакты</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <a class="btn-auth" href="login.html">Войти</a>
+            <a class="btn-auth" href="register.html">Зарегистрироваться</a>
+        </div>
+    </header>
+
+    <h2>Авторизация</h2>
+    <form action="/login" method="post">
+        <label for="username">Имя пользователя </label>
+        <input type="text" id="username" name="username" required>
+        <br>
+        <label for="password">Пароль </label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <button type="submit">Войти</button>
+    </form>
+    <div id="resetPasswordModal" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeResetPasswordModal()">&times;</span>
+          <h2>Восстановление пароля</h2>
+          <input type="email" id="resetPasswordEmail" placeholder="Введите ваш email">
+          <button onclick="sendResetPasswordEmail()">Отправить</button>
+        </div>
+      </div>
+</body>
+<script>
+    function openResetPasswordModal() {
+  document.getElementById('resetPasswordModal').style.display = 'block';
+}
+
+function closeResetPasswordModal() {
+  document.getElementById('resetPasswordModal').style.display = 'none';
+}
+
+function sendResetPasswordEmail() {
+  const email = document.getElementById('resetPasswordEmail').value;
+  if (!email) {
+    alert('Пожалуйста, введите ваш email');
+    return;
+  }
+
+  fetch('/resetPassword', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ email }),
+  })
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        alert('Письмо с инструкциями по восстановлению пароля отправлено');
+        closeResetPasswordModal();
+      } else {
+        console.error('Ошибка при отправке письма:', data.error);
+        alert('Произошла ошибка при отправке письма');
+      }
+    })
+    .catch(error => {
+      console.error('Ошибка при выполнении запроса:', error);
+      alert('Произошла ошибка при выполнении запроса');
+    });
+}
+
+</script>
+</html>

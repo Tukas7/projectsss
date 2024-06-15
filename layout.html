@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="dashboard.css">
+    <script src="server.js"></script>
+    <title>Dashboard</title>
+</head>
+<body>
+    <!-- Шапка страницы -->
+    <header class="header">
+        <a href="index.html" class="logo">
+            <img src="images/logo.png" alt="TaskMasterHub Logo">
+            <h1>TaskMasterHub</h1>
+        </a>
+        <nav>
+            <!-- Навигация по странице -->
+            <ul>
+                <li><a href="#">Главная</a></li>
+                <li><a href="#">Проекты</a></li>
+                <li><a href="#">Задачи</a></li>
+            </ul>
+        </nav>
+        <div class="dropdown">
+            <button class="dropbtn">Выберите доску</button>
+            <div class="dropdown-content" id="boardsDropdown">
+              <!-- Здесь будут отображаться доски -->
+            </div>
+          </div>
+          
+        <div class="create-board-dropdown">
+            <button class="create-board-button" onclick="toggleCreateBoardMenu()">Создать доску</button>
+            <div class="create-board-menu" id="createBoardMenu">
+                <label for="boardName">Название доски:</label>
+                <input type="text" id="boardName" placeholder="Введите название доски">
+                <button onclick="createBoard()">Создать</button>
+                <button onclick="closeCreateBoardMenu()">Отмена</button>
+            </div>
+        </div>
+        <div class="user-menu">
+            <!-- Меню пользователя -->
+            <div class="user-info">
+                <a href="#" id="username">Здесь будет имя пользователя</a>
+                <!-- Аватар пользователя -->
+                <div class="user-avatar" onclick="toggleUserMenu()">
+                    <img src="images/user-avatar.png" alt="User Avatar">
+                </div>
+                <!-- Меню пользователя -->
+                <ul class="menu-list" id="userMenu">
+                    <li><a href="#">Профиль</a></li>
+                    <li><a href="/logout">Выход</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Кнопка создания доски -->
+        
+    </header>
+
+<!-- Остальное содержимое страницы -->
+<main>
+   
+    
+</main>
+
+    
+    <script src="server.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>

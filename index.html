@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>TaskMasterHub</title>
+    
+    
+</head>
+
+<body>
+
+    <div class="main-content">
+
+        <header class="header">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="TaskMasterHub Logo">
+                <h1>TaskMasterHub</h1>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#features">Возможности</a></li>
+                    <li><a href="#advantages">Преимущества</a></li>
+                    <li><a href="#service">Наш сервис</a></li>
+                    <li><a href="#testimonials">Отзывы</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                    
+                </ul>
+            </nav>
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="checkbox">
+                  <input type="checkbox" id="checkbox" onchange="toggleTheme()">
+                  <div class="slider round"></div>
+                </label>
+                <em>Ночной режим</em>
+              </div>
+            <div class="auth-buttons">
+                <a class="btn-auth" href="login.html">Войти</a>
+                <a class="btn-auth" href="register.html">Зарегистрироваться</a>
+            </div>
+        </header>
+
+        <section id="landing" class="landing">
+            <div class="description">
+                <h2>Управляй своими проектами и задачами с TaskMasterHub</h2>
+                <p>Оптимизируй свою работу, следи за прогрессом и достигай целей вместе с нами!</p>
+                <a class="btn-auth" href="index_reg.html">Войти / Зарегистрироваться</a>
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <h3>Возможности</h3>
+            <ul>
+                <li>
+                    <div class="feature">
+                        <img src="images/feature1.jpg" alt="Feature 1">
+                        <div class="feature-details">
+                            <h4>Гибкое планирование задач</h4>
+                            <p>Организуйте свои задачи так, как вам удобно, используя гибкое планирование в TaskMasterHub.</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="feature">
+                        <img src="images/feature2.png" alt="Feature 2">
+                        <div class="feature-details">
+                            <h4>Эффективное управление временем</h4>
+                            <p>Максимизируйте эффективность, управляя своим временем с помощью инструментов TaskMasterHub.</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="feature">
+                        <img src="images/feature3.jpg" alt="Feature 3">
+                        <div class="feature-details">
+                            <h4>Отслеживание прогресса проектов</h4>
+                            <p>Будьте в курсе прогресса своих проектов и следите за достижением ваших целей в режиме реального времени.</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <section id="advantages" class="advantages">
+            <h3>Преимущества</h3>
+            <div class="slider-container">
+                <div class="arrow-container">
+                    <button class="arrow left-arrow">&larr;</button>
+                    <button class="arrow right-arrow">&rarr;</button>
+                </div>
+                <div class="advantage-cards">
+                    <div class="advantage-card">
+                        <img src="images/advantage1.jpg" alt="Advantage 1">
+                        <p>Эффективное управление временем</p>
+                    </div>
+                    <div class="advantage-card">
+                        <img src="images/advantage2.jpg" alt="Advantage 2">
+                        <p>Гибкость и масштабируемость</p>
+                    </div>
+                    <div class="advantage-card">
+                        <img src="images/advantage3.jpeg" alt="Advantage 3">
+                        <p>Отличное взаимодействие в команде</p>
+                    </div>
+                    <div class="advantage-card">
+                        <img src="images/advantage4.jpg" alt="Advantage 4">
+                        <p>Удобное отслеживание задач</p>
+                    </div>
+                    <div class="advantage-card">
+                        <img src="images/advantage5.png" alt="Advantage 5">
+                        <p>Персонализированные уведомления</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slider">
+                <div class="slider-track"></div>
+            </div>
+        </section>
+
+        <section id="service" class="service">
+            <div class="service-content">
+                <h3>Наш сервис</h3>
+                <p>TaskMasterHub предоставляет вам инструменты для эффективного планирования, управления проектами и достижения ваших целей.</p>
+                <a class="btn-learn-more" href="#">Узнать больше</a>
+            </div>
+        </section>
+
+        <section id="testimonials" class="testimonials">
+            <h3>Отзывы</h3>
+            <div class="testimonial-cards">
+                <div class="testimonial-card">
+                    <img src="images/user1.jpg" alt="User 1">
+                    <div class="testimonial-details">
+                        <h4>Иван Иванов</h4>
+                        <p>"Отличный сервис! С TaskMasterHub управление задачами стало простым и эффективным."</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <img src="images/user2.jpg" alt="User 2">
+                    <div class="testimonial-details">
+                        <h4>Анна Петрова</h4>
+                        <p>"С TaskMasterHub я всегда в курсе своих проектов. Очень удобно!"</p>
+                    </div>
+                </div>
+                <!-- Добавьте сколько угодно карточек с отзывами -->
+            </div>
+        </section>
+
+        <footer id="contact" class="footer">
+            <div class="contact-info">
+                <p>Контакты: support@taskmasterhub.com</p>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 TaskMasterHub. Все права защищены.</p>
+            </div>
+        </footer>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

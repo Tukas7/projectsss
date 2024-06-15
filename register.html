@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="server.js"></script>
+    <title>Регистрация</title>
+</head>
+<body>
+
+    <header class="header">
+        <a href="index.html" class="logo">
+            <img src="images/logo.png" alt="TaskMasterHub Logo">
+            <h1>TaskMasterHub</h1>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html#features">Возможности</a></li>
+                <li><a href="index.html#advantages">Преимущества</a></li>
+                <li><a href="index.html#service">Наш сервис</a></li>
+                <li><a href="index.html#testimonials">Отзывы</a></li>
+                <li><a href="index.html#contact">Контакты</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <a class="btn-auth" href="login.html">Войти</a>
+            <a class="btn-auth" href="register.html">Зарегистрироваться</a>
+        </div>
+    </header>
+
+    <h2>Регистрация</h2>
+    <form id="registerForm">
+        <label for="username">Имя пользователя: </label>
+        <input type="text" id="username" name="username" required>
+        <br>
+        <label for="password">Пароль: </label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <label for="email">Почта: </label>
+        <input type="email" id="email" name="email" required>
+        <br>
+        <button type="button" onclick="register()">Зарегистрироваться</button>
+    </form>
+
+    <script>
+        async function register() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const email = document.getElementById('email').value;
+
+            // Создаем объект с данными для отправки на сервер в формате JSON
+            const data = {
+                username,
+                password,
+                email
+            };
+
+            try {
+                const response = await fetch('/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json' // Указываем, что отправляем JSON
+                    },
+                    body: JSON.stringify(data) // Преобразуем объект в JSON
+                });
+
+                const responseData = await response.json();
+
+                if (response.ok) {
+                    alert(responseData.success);
+                    alert('Регистрация успешна');
+                } else {
+                    alert(responseData.error);
+                    // Дополнительные действия при ошибке регистрации, если нужно
+                }
+            } catch (error) {
+                console.error('Ошибка при отправке запроса:', error);
+                // Дополнительные действия при ошибке отправки запроса, если нужно
+            }
+        }
+    </script>
+</body>
+</html>

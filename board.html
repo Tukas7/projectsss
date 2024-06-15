@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="dashboard.css">
+    
+    <script src="dashboard.js"></script>
+    <title>Dashboard</title>
+</head>
+<body>
+    <!-- Шапка страницы -->
+    <header class="header">
+        <a href="index.html" class="logo">
+            <img src="images/logo.png" alt="TaskMasterHub Logo">
+            <h1>TaskMasterHub</h1>
+        </a>
+        <nav>
+            <!-- Навигация по странице -->
+            <ul>
+                <li><a href="#">Главная</a></li>
+                <li><a href="#">Проекты</a></li>
+                <li><a href="#">Задачи</a></li>
+            </ul>
+        </nav>
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+              <input type="checkbox" id="checkbox" onchange="toggleTheme()">
+              <div class="slider round"></div>
+            </label>
+            <em>Ночной режим</em>
+          </div>
+        <div class="dropdown">
+            <button class="dropbtn">Выберите доску</button>
+            <div class="dropdown-content" id="boardsDropdown">
+              <!-- Здесь будут отображаться доски -->
+            </div>
+          </div>
+          
+        <div class="create-board-dropdown">
+            <button class="create-board-button" onclick="toggleCreateBoardMenu()">Создать доску</button>
+            <div class="create-board-menu" id="createBoardMenu">
+                <label for="boardName">Название доски:</label>
+                <input type="text" id="boardName" placeholder="Введите название доски">
+                <button onclick="createBoard()">Создать</button>
+                <button onclick="closeCreateBoardMenu()">Отмена</button>
+            </div>
+        </div>
+        <div class="user-menu">
+            <!-- Меню пользователя -->
+            <div class="user-info">
+                <a href="#" id="username">Здесь будет имя пользователя</a>
+                <!-- Аватар пользователя -->
+                <div class="user-avatar" onclick="toggleUserMenu()">
+                    <img src="images/user-avatar.png" alt="User Avatar">
+                </div>
+                <!-- Меню пользователя -->
+                <ul class="menu-list" id="userMenu">
+                    <li><a href="#">Профиль</a></li>
+                    <li><a href="/logout">Выход</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Кнопка создания доски -->
+        
+    </header>
+
+    <!-- Остальное содержимое страницы -->
+    <main>
+        <div id="lists-container">
+            <!-- Здесь будут отображаться списки -->
+        </div>
+        <div class="board-container" id="board-container">
+            <!-- Здесь будет содержимое выбранной доски -->
+        </div>
+        <div class="create-list">
+        <div class="ListImput" id="create-list-container" contenteditable="true" placeholder="Введите название списка"></div>
+        <button id="create-list-button" onclick="createList()">Создать список</button>
+        </div>
+        
+    </main>
+    <div id="editListModal" class="modal">
+        <div class="modal-content">
+          <button class="close" onclick="closeEditListModal()">&times;</button>
+          <h2>Редактировать список</h2>
+          <input type="text" id="editListNameInput" placeholder="Новое название списка">
+          <button onclick="saveListName()">Сохранить</button>
+        </div>
+      </div>
+    
+      <!-- Модальное окно для редактирования карточки -->
+      <div id="editCardModal" class="modal">
+        <div class="modal-content">
+          <button class="close" onclick="closeEditCardModal()">&times;</button>
+          <h2>Редактировать карточку</h2>
+          <input type="text" id="editCardNameInput" placeholder="Новое название карточки">
+          <textarea id="editCardDescriptionInput" placeholder="Новое описание карточки"></textarea>
+          <button onclick="saveCardDetails()">Сохранить</button>
+        </div>
+      </div>
+      
+      <!-- Меню для управления доской -->
+<div id="boardMenu" class="board-menu">
+    <button onclick="editBoardName(currentEditingBoardId)">Изменить название</button>
+    <button onclick="deleteBoard(currentEditingBoardId)">Удалить доску</button>
+    <button onclick="openAddUserModal(currentEditingBoardId)">Добавить пользователя</button>
+  </div>
+  
+  <!-- Модальное окно добавления пользователя -->
+  <div id="addUserModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeAddUserModal()">&times;</span>
+      <h2>Добавить пользователя</h2>
+      <input type="text" id="addUserInput" placeholder="Введите имя пользователя">
+      <button onclick="addUserToBoard()">Добавить</button>
+    </div>
+  </div>
+  
+  <!-- Модальное окно редактирования списка -->
+  <div id="editListModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeEditListModal()">&times;</span>
+      <h2>Редактировать список</h2>
+      <input type="text" id="editListNameInput" placeholder="Новое название списка">
+      <button onclick="saveListName()">Сохранить</button>
+    </div>
+  </div>
+  
+      
+      <script>
+        let timeout;
+
+function showDropdownMenu() {
+    clearTimeout(timeout);
+    document.querySelector('.dropdown-content').style.display = 'block';
+}
+
+function hideDropdownMenu() {
+    timeout = setTimeout(() => {
+        document.querySelector('.dropdown-content').style.display = 'none';
+    }, 300); // Задержка в 300 мс
+}
+
+document.querySelector('.dropbtn').addEventListener('mouseover', showDropdownMenu);
+document.querySelector('.dropdown-content').addEventListener('mouseover', showDropdownMenu);
+document.querySelector('.dropbtn').addEventListener('mouseout', hideDropdownMenu);
+document.querySelector('.dropdown-content').addEventListener('mouseout', hideDropdownMenu);
+
+      </script>
+</body>
+</html>
